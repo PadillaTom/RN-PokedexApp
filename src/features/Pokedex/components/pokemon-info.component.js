@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
 import { Text, View, Image, ImageBackground } from "react-native";
+import { Colors } from "../../../infrastructure/theme/colors";
 
 // Styled Components
 const PokemonCard = styled(View)`
-  background-color: ${(props) => props.theme.Colors.PokeTypeBGs.fireBG};
   flex-direction: row;
   padding: ${(props) => props.theme.Sizes[3]};
   border-radius: ${(props) => props.theme.Sizes[0]};
@@ -28,22 +28,48 @@ const PokemonCardName = styled(Text)`
   line-height: ${(props) => props.theme.LineHeights.PokeName};
   color: ${(props) => props.theme.Colors.Texts.WhiteTXT};
 `;
+const PokemonCardDots = styled(ImageBackground).attrs({
+  source: require("../../../../assets/Patterns/PokemonCardDots.png"),
+})`
+  width: 74px;
+  height: 32px;
+  position: absolute;
+  right: 57%;
+  top: 3px;
+`;
+const PokemonCardPokeball = styled(ImageBackground).attrs({
+  source: require("../../../../assets/Patterns/PokemonCardPokeball.png"),
+})`
+  width: 145px;
+  height: 145px;
+  position: absolute;
+  bottom: -22px;
+  right: -19px;
+`;
 const PokemonCardImgContainer = styled(View)`
   position: absolute;
   right: 10px;
   bottom: 10px;
 `;
+const PokemonImage = styled(Image)`
+  width: 120px;
+  height: 120px;
+`;
 
 export const PokemonInfo = ({ pokemon = {} }) => {
   const {
-    name = "Charmander",
+    name = "Bulbasaur",
     id = 1,
-    imageUrl = "https://pokeres.bastionbot.org/images/pokemon/4.png",
-    types = ["fire"],
+    imageUrl = "https://pokeres.bastionbot.org/images/pokemon/1.png",
+    types = ["grass", "poison"],
   } = pokemon;
 
+  // Background Color:
+  const cardBg = types[0] + "BG";
+  const realCardBg = Colors.PokeTypeBGs[cardBg];
+
   return (
-    <PokemonCard style={{ elevation: 7 }}>
+    <PokemonCard style={{ backgroundColor: realCardBg }}>
       <View>
         <PokemonCardNumber>#{id}</PokemonCardNumber>
         <PokemonCardName>{name}</PokemonCardName>
@@ -51,31 +77,10 @@ export const PokemonInfo = ({ pokemon = {} }) => {
           <Text>{types}</Text>
         </View>
       </View>
-      <ImageBackground
-        source={require("../../../../assets/Patterns/PokemonCardDots.png")}
-        style={{
-          width: 74,
-          height: 32,
-          position: "absolute",
-          right: "57%",
-          top: 3,
-        }}
-      ></ImageBackground>
-      <ImageBackground
-        source={require("../../../../assets/Patterns/PokemonCardPokeball.png")}
-        style={{
-          width: 145,
-          height: 145,
-          position: "absolute",
-          bottom: -22,
-          right: -19,
-        }}
-      ></ImageBackground>
+      <PokemonCardDots></PokemonCardDots>
+      <PokemonCardPokeball></PokemonCardPokeball>
       <PokemonCardImgContainer>
-        <Image
-          source={{ uri: imageUrl }}
-          style={{ width: 120, height: 120, zIndex: 500 }}
-        ></Image>
+        <PokemonImage source={{ uri: imageUrl }}></PokemonImage>
       </PokemonCardImgContainer>
     </PokemonCard>
   );
