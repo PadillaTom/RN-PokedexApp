@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { Text, View, Image, ImageBackground } from "react-native";
-import { Colors } from "../../../infrastructure/theme/colors";
+import { Colors as BgColors } from "../../../infrastructure/theme/colors";
 
 // Styled Components
 const PokemonCard = styled(View)`
@@ -56,7 +56,7 @@ const PokemonImage = styled(Image)`
   height: 120px;
 `;
 
-export const PokemonInfo = ({ pokemon = {} }) => {
+export const PokedexCard = ({ pokemon = {} }) => {
   const {
     name = "Bulbasaur",
     id = 1,
@@ -66,7 +66,7 @@ export const PokemonInfo = ({ pokemon = {} }) => {
 
   // Background Color:
   const cardBg = types[0] + "BG";
-  const realCardBg = Colors.PokeTypeBGs[cardBg];
+  const realCardBg = BgColors.PokeTypeBGs[cardBg];
 
   return (
     <PokemonCard style={{ backgroundColor: realCardBg }}>

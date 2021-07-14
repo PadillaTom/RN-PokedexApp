@@ -17,5 +17,6 @@ export const Spaces = [
   "25px",
   "30px",
   "40px",
+  "45px",
   "100px",
 ];
