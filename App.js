@@ -4,7 +4,7 @@ import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { ThemeProvider } from "styled-components/native";
 
-import { Theme } from "./src/infrastructure/theme";
+import { theme } from "./src/infrastructure/theme";
 
 import { PokedexScreen } from "./src/features/Pokedex/screens/pokedex.screen";
 
@@ -18,9 +18,10 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
+
   return (
     <>
-      <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={theme}>
         <PokedexScreen></PokedexScreen>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />

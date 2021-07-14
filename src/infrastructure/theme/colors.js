@@ -1,4 +1,4 @@
-export const COLORS = {
+export const Colors = {
   AppBGs: {
     WhiteBG: "#ffffff",
     InputDefaultBG: "#f2f2f2",

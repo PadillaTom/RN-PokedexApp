@@ -1,5 +1,5 @@
 export const LineHeights = {
-  title: "119px",
+  Title: "119px",
   AppTitle: "38px",
   PokeName: "31px",
   FilterTitle: "19px",
@@ -9,7 +9,7 @@ export const LineHeights = {
 };
 
 export const Spaces = [
-  "0px",
+  "2px",
   "5px",
   "10px",
   "15px",

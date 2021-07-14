@@ -1,11 +1,11 @@
-import COLORS from "./colors";
-import SIZES from "./sizes";
+import { Colors } from "./colors";
+import { Sizes } from "./sizes";
 import { LineHeights, Spaces } from "./spacings";
 import { FontWeights, FontSizes } from "./fonts";
 
-export const Theme = {
-  COLORS,
-  SIZES,
+export const theme = {
+  Colors,
+  Sizes,
   LineHeights,
   Spaces,
   FontSizes,

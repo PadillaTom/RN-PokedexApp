@@ -9,6 +9,6 @@ export const pokedexItem = [
     name: "Charmander",
     id: "4",
     imageUrl: "https://pokeres.bastionbot.org/images/pokemon/4.png",
-    types: "fire",
+    types: ["fire"],
   },
 ];

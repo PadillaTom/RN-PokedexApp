@@ -1,35 +1,39 @@
 import React from "react";
-import { StatusBar, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import styled from "styled-components/native";
+import { StatusBar, SafeAreaView, Platform, View } from "react-native";
 import { Searchbar } from "react-native-paper";
 
 import { PokemonInfo } from "../components/pokemon-info.component";
 
+const MainScreen = styled(SafeAreaView)`
+  flex: 1;
+  align-items: center;
+  margin-top: ${Platform.OS === "android"
+    ? StatusBar.currentHeight + "px"
+    : "0px"};
+  width: 100%;
+`;
+const SearchBarContainer = styled(View)`
+  width: 100%;
+  padding: ${(props) => props.theme.Spaces[6]};
+  margin-bottom: ${(props) => props.theme.Spaces[3]};
+`;
+const PokemonList = styled(View)`
+  align-items: center;
+  width: 100%;
+  padding: ${(props) => props.theme.Spaces[6]};
+`;
+
 export const PokedexScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.searchContainer}>
-        <Searchbar placeholder="What Pokémon are you looking for?"></Searchbar>
-      </View>
-      <View style={styles.list}>
+    <MainScreen>
+      <SearchBarContainer>
+        <Searchbar placeholder="Find a Pokémon!"></Searchbar>
+      </SearchBarContainer>
+      <PokemonList>
         <PokemonInfo></PokemonInfo>
-      </View>
-    </SafeAreaView>
+        <PokemonInfo></PokemonInfo>
+      </PokemonList>
+    </MainScreen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    marginTop: StatusBar.currentHeight,
-  },
-  searchContainer: {
-    width: "100%",
-    padding: 16,
-  },
-  list: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
