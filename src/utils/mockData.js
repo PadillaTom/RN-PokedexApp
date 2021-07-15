@@ -11,4 +11,10 @@ export const pokedexItem = [
     imageUrl: "https://pokeres.bastionbot.org/images/pokemon/4.png",
     types: ["fire"],
   },
+  {
+    name: "Squirtle",
+    id: "7",
+    imageUrl: "https://pokeres.bastionbot.org/images/pokemon/7.png",
+    types: ["water"],
+  },
 ];
